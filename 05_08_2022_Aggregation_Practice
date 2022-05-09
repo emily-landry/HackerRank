@@ -1,0 +1,143 @@
+--HackerRank_05_08_2022_Aggregation_Practice
+
+/*
+Decided to start saving my queries from HackerRank
+Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than . Round your answer to  decimal places.
+
+SELECT
+CAST(LONG_W AS DECIMAL(10,4))
+FROM
+STATION
+WHERE
+LAT_N <137.2345
+ORDER BY 
+LAT_N DESC
+LIMIT 1;
+
+Query the smallest Northern Latitude (LAT_N) from STATION that is greater than . Round your answer to  decimal places.
+
+SELECT
+CAST(LAT_N AS DECIMAL(10,4))
+FROM
+STATION
+WHERE
+LAT_N > 38.7780
+ORDER BY
+LAT_N ASC
+LIMIT 1;
+
+Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to  decimal places.
+
+SELECT
+CAST(LONG_W AS DECIMAL(10,4))
+FROM
+STATION
+WHERE
+LAT_N >38.7780
+ORDER BY
+LAT_N ASC
+LIMIT 1;
+
+Query the Manhattan Distance between points  and  and round it to a scale of  decimal places.
+Definition: The distance between two points measured along axes at right angles. In a plane with p1 at (x1, y1) and p2 at (x2, y2), it is |x1 - x2| + |y1 - y2|.
+
+SELECT
+    ROUND(MAX(LAT_N)-(MIN(LAT_N)),4) +
+    ROUND(MAX(LONG_W)-(MIN(LONG_W)),4)        
+FROM
+STATION
+;
+
+Consider  and  to be two points on a 2D plane where  are the respective minimum and maximum values of Northern Latitude (LAT_N) and  are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.
+Query the Euclidean Distance between points  and  and format your answer to display  decimal digits.
+holy quacamole. okay. i've got this. concentrate emily.
+runs to google for help
+Definition: The straight line distance between two points. In a plane with
+p1 at (x1, y1) and p2 at (x2, y2), 
+it is √((x1 - x2)² + (y1 - y2)²)
+okay, i haven't done square roots or powers yet. yay for learning!
+sqrt(value,#)
+power(value,#)
+simple enough
+
+p1 
+(MIN(LAT_N)) x1
+(MIN(LONG_W)) y1
+
+p2
+(MAX(LAT_N)) x2
+(MAX(LONG_W)) y2
+
+√((x1 - x2)² + (y1 - y2)²)
+
+SELECT
+ROUND
+((SQRT(
+    POWER(
+            (
+            (MIN(LAT_N))
+            -
+            (MAX(LAT_N))
+            )
+    ,2)
++
+    POWER(
+            (
+            (MIN(LONG_W))
+            -
+            (MAX(LONG_W))
+            )
+    ,2)
+    )
+)
+,4)
+FROM
+STATION;
+
+let's just say keeping track of these parentheses was a doozy!
+I was able to nail the syntax pretty easily but it took me a handful of times to ensure I had all the proper parenthesis in place. 
+
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  decimal places.
+Welp, there is no median function so let's get weird
+
+I COULD just see how many rows of data there is then order and limit
+SELECT
+COUNT(*)
+FROM STATION;
+
+	returned there are 499 rows
+	Median row would be 250
+  
+SELECT
+LAT_N
+FROM STATION
+ORDER BY
+LAT_N ASC
+LIMIT 250,1;
+
+	Returned Wrong Answer for output value
+	oh, forgot to round! 
+  
+SELECT
+ROUND(LAT_N,4)
+FROM STATION
+ORDER BY
+LAT_N ASC
+LIMIT 250,1;
+
+	Nope, still returned Wrong Answer for output value
+	oh! It starts counting at 0 so I need to try 249
+  
+SELECT
+ROUND(LAT_N,4)
+FROM STATION
+ORDER BY
+LAT_N DESC
+LIMIT 249,1;
+
+	BAM! That was it. I think I can also use floor and ceiling but I'm happy with this method for now
+
+!! Congrats Emily! You just solved all the Aggregation challenges in SQL! !!
+
+Alrighty, I'm going to call it a night. See ya next time!
+*/
