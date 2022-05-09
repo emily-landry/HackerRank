@@ -1,4 +1,6 @@
-I am going to start keeping track of my query practice on HackerRank, and try to narrate with comments where I can. <br>
+Heya, <br>
+<br>
+I am going to start keeping track of my query practice on HackerRank, and try to narrate with comments where I can.<br>
 <br>
 <br>That's all
 <br>-Emily
