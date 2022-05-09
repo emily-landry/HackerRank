@@ -4,6 +4,6 @@ I am going to start keeping track of my query practice on HackerRank, and try to
 
 That's all
 -Emily
-hackerrank.com/emilylandry
-linkedin.com/in/emily-landry
-emilylandry.co
+<br>hackerrank.com/emilylandry
+<br>linkedin.com/in/emily-landry
+<br>emilylandry.co
