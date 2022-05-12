@@ -1,6 +1,6 @@
 Heya, <br>
 <br>
-I am going to start keeping track of my query practice on HackerRank, and try to narrate with comments where I can.<br>
+Here is some of my query practice on HackerRank.<br>
 <br>That's all
 <br>-Emily
 <br><a href="hackerrank.com/emilylandry">HackerRank</a>
